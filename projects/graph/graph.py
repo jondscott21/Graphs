@@ -60,7 +60,23 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+        # Create an empty queue and enqueue the starting vertex ID
+        # Create an empty set to store visited vertices
+        # While the queue is not empty...
+            # Dequeue the first vertex
+            # If that vertex has not been visited...
+                # Mark it as visited
+                # Then add all of its neighbors to the back fo the queue
+        q = Queue()
+        q.enqueue(starting_vertex)
+        visited = set()
+        while q.size() > 0:
+            v = q.dequeue()
+            if v not in visited:
+                print(v)
+                visited.add(v)
+                for neighbor in self.vertices[v]:
+                    q.enqueue(neighbor)
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -68,7 +84,21 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        # Create an empty stack and pop the starting vertex ID
+            # Create an empty set to store visited vertices
+            # While the stack is not empty...
+                # Pop the first vertex
+                # If that vertex has not been visited...
+        s = Stack()
+        s.push(starting_vertex)
+        visited = set()
+        while s.size() > 0:
+            v = s.pop()
+            if not v in visited:
+                print(v)
+                visited.add(v)
+                for neighbor in self.vertices[v]:
+                    s.push(neighbor)
 
     def dfs_recursive(self, starting_vertex):
         """
