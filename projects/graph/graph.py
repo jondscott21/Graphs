@@ -76,14 +76,19 @@ class Graph:
                 for neighbor in self.vertices[v]:
                     s.push(neighbor)
 
-    def dft_recursive(self, starting_vertex):
+    def dft_recursive(self, starting_vertex, visited=set()):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
-        pass  # TODO
+        visited.add(starting_vertex)
+        print(starting_vertex)
+        for neighbor in self.vertices[starting_vertex]:
+            if not neighbor in visited:
+                self.dft_recursive(neighbor)
+
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -137,8 +142,6 @@ class Graph:
         while s.size() > 0:
             # Pop the first vertex and store it as a variable
             v = s.pop()
-            print('v: ', v)
-            # Check if destination is in neighbors
             # If that vertex has not been visited...
             if not v in visited:
                 # Mark it as visited
@@ -147,6 +150,7 @@ class Graph:
                 # Add all of its neighbors to the stack
                 for neighbor in self.vertices[v]:
                     s.push(neighbor)
+            # Check if destination is in neighbors
             if destination_vertex in self.vertices[v]:
                 # Add it to list if it is and return list
                 returned_list.append(destination_vertex)
