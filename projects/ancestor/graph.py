@@ -45,14 +45,16 @@ class Graph:
         queue = Queue()
         queue.enqueue(starting_vertex)
         visited = set()
+        visited_list = list()
         while queue.size() > 0:
             vertex = queue.dequeue()
             if vertex not in visited:
-                print(vertex)
+                # print(vertex)
                 visited.add(vertex)
+                visited_list.append(vertex)
                 for neighbor in self.vertices[vertex]:
                     queue.enqueue(neighbor)
-
+        return visited_list
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
@@ -68,14 +70,16 @@ class Graph:
         stack = Stack()
         stack.push(starting_vertex)
         visited = set()
+        visited_list = list()
         while stack.size() > 0:
             vertex = stack.pop()
             if not vertex in visited:
-                print(vertex)
+                # print(vertex)
                 visited.add(vertex)
+                visited_list.append(vertex)
                 for neighbor in self.vertices[vertex]:
                     stack.push(neighbor)
-
+        return visited_list
     def dft_recursive(self, starting_vertex, visited=None):
         """
         Print each vertex in depth-first order
@@ -86,7 +90,7 @@ class Graph:
         if visited is None:
             visited = set()
         visited.add(starting_vertex)
-        print(starting_vertex)
+        # print(starting_vertex)
         for neighbor in self.vertices[starting_vertex]:
             if not neighbor in visited:
                 self.dft_recursive(neighbor, visited)
