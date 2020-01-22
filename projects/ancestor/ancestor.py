@@ -9,7 +9,6 @@ def earliest_ancestor(ancestors, starting_node):
         graph.add_edge(ancestors[i][1], ancestors[i][0])
     if len(graph.get_neighbors(starting_node)) == 0:
         return -1
-    print(graph.bft(starting_node))
     return (graph.bft(starting_node)[-1])
 # test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
 
