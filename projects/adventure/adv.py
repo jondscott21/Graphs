@@ -29,7 +29,14 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
-
+# def traverse_map():
+#     stack = list()
+#     stack.append(player.current_room())
+#     visited = set()
+#     while len(stack) > 0:
+#         current_room = stack.pop()
+#         if current_room not in visited"
+#             visited.add()
 
 # TRAVERSAL TEST
 visited_rooms = set()
